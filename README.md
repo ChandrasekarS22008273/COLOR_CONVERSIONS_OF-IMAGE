@@ -1,182 +1,230 @@
-# COLOR_CONVERSIONS_OF-IMAGE.
+# COLOR_CONVERSIONS_OF-IMAGE
+## AIM
+To write a python program using OpenCV to do the following image manipulations.
 
-### Developed by: Chandrasekar S
-### Register No: 212222230025
-### Date:
+i) Read, display, and write an image.
 
-## AIM:
-Write a Python program using OpenCV that performs the following tasks:
+ii) Access the rows and columns in an image.
 
-i) Read and Display an Image.
+iii) Cut and paste a small portion of the image.
 
-ii) Draw Shapes and Add Text.
-
-iii) Image Color Conversion.
-
-iv) Access and Manipulate Image Pixels.
-
-v) Image Resizing
-
-vi) Image Cropping
-
-vii) Image Flipping
-
-viii)	Write and Save the Modified Image
+iv)To perform the color conversion between RGB, BGR, HSV, and YCbCr color models.
 
 
 ## Software Required:
 Anaconda - Python 3.7
-
 ## Algorithm:
-
 ### Step1:
-      o Load an image from your local directory and display it.
-
+Choose an image and save it as a filename.jpg ,
 ### Step2:
-      o	Draw a line from the top-left to the bottom-right of the image.
-      o	Draw a circle at the center of the image.
-      o	Draw a rectangle around a specific region of interest in the image.
-      o	Add the text "OpenCV Drawing" at the top-left corner of the image.
-
+Use imread(filename, flags) to read the file.
 ### Step3:
-      o	Convert the image from RGB to HSV and display it.
-      o	Convert the image from RGB to GRAY and display it.
-      o	Convert the image from RGB to YCrCb and display it.
-      o	Convert the HSV image back to RGB and display it.
-
+Use imshow(window_name, image) to display the image.
 ### Step4:
-      o	Access and print the value of the pixel at coordinates (100, 100).
-      o	Modify the color of the pixel at (200, 200) to white.
-
+Use imwrite(filename, image) to write the image.
 ### Step5:
-      o	Resize the original image to half its size and display it.
-
+End the program and close the output image windows.
 ### Step6:
-      o	Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
-
+Convert BGR and RGB to HSV and GRAY
 ### Step7:
-      o	Flip the original image horizontally and display it.
-      o	Flip the original image vertically and display it.
-
+Convert HSV to RGB and BGR
 ### Step8:
-      o	Save the final modified image to your local directory.
+Convert RGB and BGR to YCrCb
+### Step9:
+Split and Merge RGB Image
+### Step10:
+Split and merge HSV Image
 
-
-## Program:
-
+##### Program:
 ### Developed By: Chandrasekar S
 ### Register Number: 212222230025
 
-```
+### i) Read and display the image
+```python
 import cv2
-
-image = cv2.imread('sample2.JPG') 
-cv2.imshow('Original Image', image)
+image=cv2.imread('birds.jpg',1)
+image=cv2.resize(image,(400,300))
+cv2.imshow('Birds-Chandrasekar',image)
 cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 023301](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/98c12b12-6246-4bd8-9f11-2806136317cc)
 
-cv2.line(image, (0, 0), (image.shape[1], image.shape[0]), (255, 0, 0), 5)
+### ii)Write the image
+```python
+import cv2
+image=cv2.imread('lion.jpg',0)
+cv2.imwrite('test.jpg',image)
+```
 
-center_x, center_y = image.shape[1] // 2, image.shape[0] // 2
+#### Output:
+![Screenshot 2024-02-15 024215](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/e5be0d15-0dd8-4c98-9cc3-033b6d35bec3)
 
-cv2.circle(image, (center_x, center_y), 50, (0, 255, 0), 5)
+### iii)Shape of the Image
+```python
+    import cv2
+    image=cv2.imread('lion.jpg',1)
+    print(image.shape)
+```
+#### Output:
+![Screenshot 2024-02-15 024341](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/06dbea85-2946-4ebc-a7eb-5e30b72a62c1)
 
-cv2.rectangle(image, (50, 50), (150, 150), (0, 0, 255), 5)
-
-cv2.putText(image, 'OpenCV Drawing', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-
-cv2.imshow('Image with Drawing', image)
+### iv)Access rows and columns
+```python
+import random
+import cv2
+image=cv2.imread('lion.jpg',1)
+image=cv2.resize(image,(400,400))
+for i in range (150,200):
+    for j in range(image.shape[1]):
+        image[i][j]=[random.randint(0,255),
+        random.randint(0,255),
+        random.randint(0,255)] 
+cv2.imshow('part image',image)
 cv2.waitKey(0)
-
-hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-cv2.imshow('HSV Image', hsv_image)
-cv2.waitKey(0)
-
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-cv2.imshow('Gray Image', gray_image)
-cv2.waitKey(0)
-
-ycrcb_image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
-cv2.imshow('YCrCb Image', ycrcb_image)
-cv2.waitKey(0)
-
-rgb_from_hsv = cv2.cvtColor(hsv_image, cv2.COLOR_HSV2BGR)
-cv2.imshow('RGB from HSV', rgb_from_hsv)
-cv2.waitKey(0)
-
-pixel_value = image[100, 100]
-print(f'Pixel value at (100, 100): {pixel_value}')
-
-image[200, 200] = [255, 255, 255]
-
-resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
-cv2.imshow('Resized Image (Half Size)', resized_image)
-cv2.waitKey(0)
-
-roi = image[50:150, 50:150]  
-cv2.imshow('Cropped ROI', roi)
-cv2.waitKey(0)
-
-flipped_horizontally = cv2.flip(image, 1)
-flipped_vertically = cv2.flip(image, 0)
-
-cv2.imshow('Flipped Horizontally', flipped_horizontally)
-cv2.waitKey(0)
-
-cv2.imshow('Flipped Vertically', flipped_vertically)
-cv2.waitKey(0)
-
-cv2.imwrite('modified_image.jpg', image)
-
 cv2.destroyAllWindows()
 ```
 
-## Output:
-
-### i)Read and Display an Image:
-![image](https://github.com/user-attachments/assets/bf020b86-e626-43f1-a485-ff5086dbf828)
+#### Output:
+![Screenshot 2024-02-15 025133](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/8184e278-dd14-4884-874f-4d0f86605b7f)
 
 
-### ii)Draw Shapes and Add Text:
-![image](https://github.com/user-attachments/assets/f61c1060-1ec4-48ca-932e-95a7ea28850c)
+### v)Cut and paste portion of image
+```python
+import cv2
+image=cv2.imread('lion.jpg',1)
+image=cv2.resize(image,(400,400))
+tag =image[150:200,110:160]
+image[110:160,150:200] = tag
+cv2.imshow('image1',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 025622](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/f04b7a92-192f-4795-aa3a-d6110fb9fa1a)
 
 
-### iii)Image Color Conversion:
+### vi) BGR and RGB to HSV and GRAY
+```python
+import cv2
+img = cv2.imread('lion.jpg',1)
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original Image',img)
 
-#### HSV image:
-![Screenshot 2024-09-16 083613](https://github.com/user-attachments/assets/49596ead-4c5e-4f64-b8de-46b013eb7048)
+hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('BGR2HSV',hsv1)
 
-#### Gray image:
-![Screenshot 2024-09-16 083643](https://github.com/user-attachments/assets/99f5ea37-9ec8-4fd8-85b5-a3645d9ae6cc)
+hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+cv2.imshow('RGB2HSV',hsv2)
 
-#### YCrCb image:
-![Screenshot 2024-09-16 083709](https://github.com/user-attachments/assets/6b747454-3d46-4f53-8ace-5b4649440fee)
+gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+cv2.imshow('BGR2GRAY',gray1)
 
-#### RGB from HSV:
-![Screenshot 2024-09-16 083740](https://github.com/user-attachments/assets/044d94d5-68c1-401b-8838-e3e8eb21c180)
+gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+cv2.imshow('RGB2GRAY',gray2)
 
-### iv)Access and Manipulate Image Pixels:
-![Screenshot 2024-09-16 083806](https://github.com/user-attachments/assets/76864aa7-fb04-4e23-adcd-a301b2cfa1a0)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 025942](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/4380aa71-17e6-4940-8dc1-c669745f867a)
 
-### v)Image Resizing:
-![Screenshot 2024-09-16 083844](https://github.com/user-attachments/assets/d2b77411-8698-4f5a-b902-d5d6de66f36e)
 
-### vi)Image Cropping:
-![Screenshot 2024-09-16 083917](https://github.com/user-attachments/assets/bc02a723-0706-4773-b578-1113a662dd5f)
+### vii) HSV to RGB and BGR
+```python
+import cv2
+img = cv2.imread('lion.jpg')
+img = cv2.resize(img,(300,200))
 
-### vii)Image Flipping:
+img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+cv2.imshow('Original HSV Image',img)
 
-#### Horizontal:
-![Screenshot 2024-09-16 083956](https://github.com/user-attachments/assets/81cfaaa2-5185-4fea-a714-da79c0bd870d)
+RGB = cv2.cvtColor(img,cv2.COLOR_HSV2RGB)
+cv2.imshow('2HSV2BGR',RGB)
 
-#### Vertical:
-![Screenshot 2024-09-16 084025](https://github.com/user-attachments/assets/bd25bf76-ede9-4ebe-b38d-693b7d169388)
+BGR = cv2.cvtColor(img,cv2.COLOR_HSV2BGR)
+cv2.imshow('HSV2RGB',BGR)
 
-### viii)Write and Save the Modified Image:
-![Screenshot 2024-09-16 084957](https://github.com/user-attachments/assets/2f525971-40ad-4e88-a25e-51350e9840a7)
-![Screenshot 2024-09-16 085018](https://github.com/user-attachments/assets/9d65935d-090d-41e4-8218-814d6ae7a683)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 030233](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/3b8c7987-5971-40b8-9a97-957b186acdf1)
+
+
+### viii) RGB and BGR to YCrCb
+
+```python
+import cv2
+img = cv2.imread('lion.jpg')
+img = cv2.resize(img,(300,200))
+cv2.imshow('Original RGB Image',img)
+
+YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
+cv2.imshow('RGB-2-YCrCb',YCrCb1)
+
+YCrCb2 = cv2.cvtColor(img, cv2.COLOR_RGB2YCrCb)
+cv2.imshow('BGR-2-YCrCb',YCrCb2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 030450](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/7f91ff01-72e4-40d5-bf7a-d91a883bed2f)
+
+
+### ix) Split and merge RGB Image
+```python
+import cv2
+img = cv2.imread('lion.jpg',1)
+img = cv2.resize(img,(300,200))
+
+R = img[:,:,2]
+G = img[:,:,1]
+B = img[:,:,0]
+
+cv2.imshow('R-Channel',R)
+cv2.imshow('G-Channel',G)
+cv2.imshow('B-Channel',B)
+
+merged = cv2.merge((B,G,R))
+cv2.imshow('Merged RGB image',merged)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+![Screenshot 2024-02-15 030708](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/e6a5f595-6c73-43c3-9b1a-ee4869a5974c)
+
+
+### x) Split and merge HSV Image
+```python
+import cv2
+img = cv2.imread("lion.jpg",1)
+img = cv2.resize(img,(200,200))
+img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+
+H,S,V=cv2.split(img)
+
+cv2.imshow('Hue',H)
+cv2.imshow('Saturation',S)
+cv2.imshow('Value',V)
+
+merged = cv2.merge((H,S,V))
+cv2.imshow('Merged',merged)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+#### Output:
+
+![Screenshot 2024-02-15 031124](https://github.com/r-sathish-02/COLOR_CONVERSIONS_OF-IMAGE/assets/118787261/cbfa0ce4-43ed-4995-821d-0f2ed8e701d5)
+
+
 
 ## Result:
-Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
+Thus the images are read, displayed, and written ,and color conversion was performed between RGB, HSV and YCbCr color models successfully using the python program.
 
 
 
