@@ -179,7 +179,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/f13144d5-5452-4874-a26b-8adb17b4aeba)
+<img width="514" alt="Screenshot 2024-09-28 at 3 55 24 PM" src="https://github.com/user-attachments/assets/116cddbc-1145-4b75-81e9-7888160e3d3e">
 
 <br>
 <br>
@@ -195,7 +195,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/31ac5dac-ab8c-446e-9909-1f499237b579)
+<img width="515" alt="Screenshot 2024-09-28 at 3 56 17 PM" src="https://github.com/user-attachments/assets/3a5627ca-d308-4750-8ec4-5bcb22839934">
 
 
 <br>
@@ -215,6 +215,8 @@ plt.show()
 
 ```
 ### OUTPUT:
+![image](https://github.com/user-attachments/assets/1fbed977-8f44-444e-be30-165b1af68f1b)
+
 
 <br>
 <br>
@@ -233,7 +235,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/0cfed28a-8901-40fc-9770-d4b1f082eb0a)
+![image](https://github.com/user-attachments/assets/45e6aad1-4883-4f10-aca7-c39c9d5ea21d)
 
 <br>
 <br>
@@ -250,7 +252,7 @@ plt.axis('off')
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/a324ca07-c93a-4fcb-964b-6139e84bd858)
+![image](https://github.com/user-attachments/assets/5fe25cc9-58b8-4e05-9c33-38a17783a16d)
 
 
 ii.)Flip the original image vertically and display it.
@@ -263,7 +265,7 @@ plt.axis('off')
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/3de773ae-8cb0-40bb-9dd6-e8472b089b99)
+![image](https://github.com/user-attachments/assets/8b5f9071-b548-4ec2-94b4-44a988d91730)
 
 <br>
 <br>
@@ -273,7 +275,7 @@ plt.axis('off')
 cv2.imwrite('vaathu.jpg',img5)
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/3ad0b07f-16e5-4ff1-9f74-9402285ac760)
+![image](https://github.com/user-attachments/assets/6b624daa-1f40-4ab4-8fe4-eb0237032038)
 
 <br>
 <br>
