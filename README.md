@@ -122,7 +122,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/7b7fa703-d7fe-459b-a27e-938560255e2b)
+![image](https://github.com/user-attachments/assets/940db6f9-b3b9-4b04-a8cd-e4c9875e4f05)
 
 
 <br>
