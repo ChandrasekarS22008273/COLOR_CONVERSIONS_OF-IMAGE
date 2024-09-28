@@ -122,7 +122,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/940db6f9-b3b9-4b04-a8cd-e4c9875e4f05)
+![image](https://github.com/user-attachments/assets/8c8d85e0-dc2e-4e87-b5aa-a0e6d15f078b)
 
 
 <br>
@@ -141,7 +141,7 @@ plt.show()
 ```
 ### OUTPUT:
 
-![image](https://github.com/user-attachments/assets/20f0c8b6-bd65-442a-923d-74822cb2c16b)
+<img width="513" alt="Screenshot 2024-09-28 at 3 51 40 PM" src="https://github.com/user-attachments/assets/b2374185-36f9-47b3-91af-34466c094216">
 
 
 
@@ -155,7 +155,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/c8b0802d-c293-44b6-8714-273ed4c4daad)
+![image](https://github.com/user-attachments/assets/95990f9b-6d4c-4527-9834-9281df56dba4)
 
 
 iii.)Convert the image from RGB to YCrCb and display it.
@@ -167,7 +167,7 @@ plt.show()
 
 ```
 ### OUTPUT:
-![image](https://github.com/user-attachments/assets/7a256ed0-f81c-49a1-b4d9-6ee6995da2dc)
+![image](https://github.com/user-attachments/assets/4dae25e7-28ef-4416-800e-f2dd651ece89)
 
 
 iii.)Convert the HSV image back to RGB and display it.
