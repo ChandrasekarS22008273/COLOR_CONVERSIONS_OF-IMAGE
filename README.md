@@ -84,26 +84,28 @@ plt.show()
 
 ii)Draw a circle at the center of the image.
 ```
-circle=cv2.circle(img1, (200,200) ,100, (0, 0, 255), 10)
+circle=cv2.circle(img1, (200,200) ,100, (255, 192, 203), 10)
 plt.imshow(circle)
 plt.axis('off')
 plt.show()
 
 ```
 ### OUTPUT:
-<img width="384" alt="Screenshot 2024-09-28 at 3 31 36 PM" src="https://github.com/user-attachments/assets/3dbaa6ba-4f1b-48f4-95d1-116991497125">
+![image](https://github.com/user-attachments/assets/db13a9b4-bf58-4da8-8c40-46f22b971d8a)
+
 
 
 iii)Draw a rectangle around a specific region of interest in the image.
 ```
-rectangle=cv2.rectangle(img2,(50,50),(350,350),(255,255,0),10)
+rectangle=cv2.rectangle(img2,(50,50),(350,350),(255,0,0),10)
 plt.imshow(rectangle)
 plt.axis('off')
 plt.show()
 
 ```
 ### OUTPUT:
-<img width="391" alt="Screenshot 2024-09-28 at 3 32 21 PM" src="https://github.com/user-attachments/assets/bb6658f8-0804-4c31-ba76-07cf688541b5">
+![image](https://github.com/user-attachments/assets/99fc1437-58c9-41a3-bb37-84d87b7f0544)
+
 
 
 iv)Add the text at the bottom of the image.
